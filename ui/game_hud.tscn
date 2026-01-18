@@ -111,29 +111,33 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="."]
-position = Vector2(79.200005, 893.19995)
+self_modulate = Color(1, 1, 1, 0.54901963)
+position = Vector2(145, 742)
 rotation = 4.712389
-scale = Vector2(0.1, 0.1)
+scale = Vector2(0.25, 0.25)
 texture_normal = ExtResource("5_qnhj8")
 action = "up"
 
 [node name="TouchScreenButton2" type="TouchScreenButton" parent="."]
-position = Vector2(136.19998, 965.1999)
+self_modulate = Color(1, 1, 1, 0.54901963)
+position = Vector2(265, 910)
 rotation = 1.5707964
-scale = Vector2(0.1, 0.1)
+scale = Vector2(0.25, 0.25)
 texture_normal = ExtResource("5_qnhj8")
 action = "down"
 
 [node name="TouchScreenButton3" type="TouchScreenButton" parent="."]
-position = Vector2(75.200005, 956.19995)
+self_modulate = Color(1, 1, 1, 0.54901963)
+position = Vector2(138, 894)
 rotation = 3.1415927
-scale = Vector2(0.1, 0.1)
+scale = Vector2(0.25, 0.25)
 texture_normal = ExtResource("5_qnhj8")
 action = "left"
 
 [node name="TouchScreenButton4" type="TouchScreenButton" parent="."]
-position = Vector2(137.2, 898.19995)
-scale = Vector2(0.1, 0.1)
+self_modulate = Color(1, 1, 1, 0.54901963)
+position = Vector2(268, 765)
+scale = Vector2(0.25, 0.25)
 texture_normal = ExtResource("5_qnhj8")
 action = "right"
 
