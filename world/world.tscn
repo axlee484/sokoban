@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://b3keosfc3fi10"]
+
+[ext_resource type="Script" uid="uid://cvw2aflw1h6ve" path="res://world/world.gd" id="1_6xmxd"]
+[ext_resource type="TileSet" uid="uid://7nutqykvoy8o" path="res://assets/tilemap.tres" id="2_tcf2h"]
+[ext_resource type="PackedScene" uid="uid://cnn8op10b4sch" path="res://player/player.tscn" id="3_4717r"]
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_6xmxd")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.5, 1.5)
+
+[node name="Floor" type="TileMapLayer" parent="."]
+tile_set = ExtResource("2_tcf2h")
+
+[node name="Wall" type="TileMapLayer" parent="."]
+tile_set = ExtResource("2_tcf2h")
+
+[node name="Target" type="TileMapLayer" parent="."]
+tile_set = ExtResource("2_tcf2h")
+
+[node name="Box" type="TileMapLayer" parent="."]
+tile_set = ExtResource("2_tcf2h")
+
+[node name="Player" parent="." instance=ExtResource("3_4717r")]

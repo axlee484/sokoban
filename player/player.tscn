@@ -42,3 +42,4 @@ animations = [{
 sprite_frames = SubResource("SpriteFrames_g6k8r")
 autoplay = "default"
 frame_progress = 0.65755415
+offset = Vector2(16, 14)
