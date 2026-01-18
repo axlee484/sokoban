@@ -32,6 +32,7 @@ var tileMapData: Dictionary
 var boxes: Array
 
 
+var _level := 0
 var moveDirection := Vector2i.ZERO
 var isMoving := false
 
@@ -75,8 +76,9 @@ func setupCamera():
 	camera.global_position = global_position + Vector2(midPoint)
 
 
-func setup(level: int = 6):
-	tileMapData = GameData.getLevelData(level).tiles
+func setup():
+	_level = GameManager.level
+	tileMapData = GameData.getLevelData(_level).tiles
 	setupLayer(FLOOR_LAYER_NAME)\
 	.setupLayer(WALL_LAYER_NAME)\
 	.setupLayer(TARGET_LAYER_NAME)\
@@ -84,7 +86,7 @@ func setup(level: int = 6):
 
 
 	setupCamera()
-	setupPlayer(level)
+	setupPlayer(_level)
 
 
 

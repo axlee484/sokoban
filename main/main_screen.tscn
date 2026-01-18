@@ -1,0 +1,66 @@
+[gd_scene load_steps=4 format=3 uid="uid://bd7f6jovwrnbb"]
+
+[ext_resource type="Texture2D" uid="uid://ca6fvusqyveh3" path="res://assets/Gray.png" id="1_ildpu"]
+[ext_resource type="Script" uid="uid://c65wqd4mxf114" path="res://main/main_screen.gd" id="1_yu303"]
+[ext_resource type="FontFile" uid="uid://46o1uq4xg1eg" path="res://assets/LuckiestGuy-Regular.ttf" id="2_1sdxw"]
+
+[node name="MainScreen" type="CanvasLayer"]
+script = ExtResource("1_yu303")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ildpu")
+stretch_mode = 1
+
+[node name="MC" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 300
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 300
+theme_override_constants/margin_bottom = 10
+
+[node name="VB" type="VBoxContainer" parent="MC"]
+layout_mode = 2
+
+[node name="GameName" type="Label" parent="MC/VB"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.22352941, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.9607843)
+theme_override_colors/font_outline_color = Color(0, 0.18990973, 0.99998945, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_1sdxw")
+theme_override_font_sizes/font_size = 84
+text = "SOKOBAN(ISH)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PickLevel" type="Label" parent="MC/VB"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0.19215687, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_1sdxw")
+theme_override_font_sizes/font_size = 30
+text = "Pick a Level"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SC" type="ScrollContainer" parent="MC/VB"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="GC" type="GridContainer" parent="MC/VB/SC"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/h_separation = 15
+theme_override_constants/v_separation = 15
+columns = 5

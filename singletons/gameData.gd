@@ -14,6 +14,9 @@ func loadLevelData():
 	levelData = JSON.parse_string(file.get_as_text())
 
 
+func getAllLevels():
+	return levelData
+
 func getLevelData(level: int):
 	return levelData.get(str(level))
 
