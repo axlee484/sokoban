@@ -19,6 +19,7 @@ config/icon="uid://y8d5qoimnpqr"
 
 SignalManager="*res://singletons/signalManager.gd"
 GameData="*res://singletons/gameData.gd"
+ScoreManager="*res://singletons/scoreManager.gd"
 GameManager="*res://singletons/gameManager.gd"
 
 [display]

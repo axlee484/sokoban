@@ -10,6 +10,7 @@ class_name World
 
 @onready var player = $Player
 @onready var camera = $Camera2D
+@onready var gameHud = $GameHUD
 
 
 const TILE_SIZE = 32
@@ -35,6 +36,8 @@ var boxes: Array
 var _level := 0
 var moveDirection := Vector2i.ZERO
 var isMoving := false
+var moves:= 0
+var levelBest :=0
 
 func getRandomFloorTile():
 	var x := randi_range(FLOOR_TILE_START.x, FLOOR_TILE_END.x)
@@ -79,14 +82,20 @@ func setupCamera():
 func setup():
 	_level = GameManager.level
 	tileMapData = GameData.getLevelData(_level).tiles
-	setupLayer(FLOOR_LAYER_NAME)\
-	.setupLayer(WALL_LAYER_NAME)\
-	.setupLayer(TARGET_LAYER_NAME)\
-	.setupLayer(BOX_LAYER_NAME)
+	floorLayer.clear()
+	wallLayer.clear()
+	targetLayer.clear()
+	boxLayer.clear()
+	setupLayer(FLOOR_LAYER_NAME)
+	setupLayer(WALL_LAYER_NAME)
+	setupLayer(TARGET_LAYER_NAME)
+	setupLayer(BOX_LAYER_NAME)
 
 
 	setupCamera()
 	setupPlayer(_level)
+	gameHud.updateHud(_level, moves, "-" if levelBest == -1 else str(levelBest))
+
 
 
 
@@ -112,13 +121,15 @@ func checkTargetCovered():
 				targetsHit +=1
 				renderTargetBoxTile(Vector2(x,y))
 	if targetsHit == count:
-		print("GameOver")
+		SignalManager.levelFinished.emit(_level, moves)
 		set_process(false)
 
 
 func _ready():
 	setup()
-	boxes = tileMapData.boxes
+	levelBest = ScoreManager.getBestForLevel(_level)
+	gameHud.updateHud(_level, moves, "-" if levelBest == -1 else str(levelBest))
+	boxes = JSON.parse_string(JSON.stringify(tileMapData.boxes))
 	checkTargetCovered()
 
 
@@ -189,8 +200,10 @@ func canPlayerMove():
 func movePlayer():
 	isMoving = true
 	player.global_position += Vector2(moveDirection*TILE_SIZE)
+	moves += 1
 	isMoving = false
 	moveDirection = Vector2i.ZERO
+	gameHud.updateHud(_level, moves, "-" if levelBest == -1 else str(levelBest))
 
 			
 

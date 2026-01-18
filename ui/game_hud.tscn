@@ -1,0 +1,112 @@
+[gd_scene load_steps=5 format=3 uid="uid://hn4ikvnp38h6"]
+
+[ext_resource type="Script" uid="uid://62ujid67yse5" path="res://ui/game_hud.gd" id="1_io01e"]
+[ext_resource type="FontFile" uid="uid://bpl85aaj68r3s" path="res://assets/regular16white.tres" id="1_yi54v"]
+[ext_resource type="Texture2D" uid="uid://tcgqi3gy01i8" path="res://assets/yellow_button00.png" id="3_5bps4"]
+[ext_resource type="Texture2D" uid="uid://b2u1rg2dhxsyi" path="res://assets/green_button00.png" id="4_trchv"]
+
+[node name="GameHUD" type="CanvasLayer"]
+script = ExtResource("1_io01e")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VB" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="HBLevel" type="HBoxContainer" parent="MarginContainer/VB"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="LevelText" type="Label" parent="MarginContainer/VB/HBLevel"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.85490197)
+theme_override_fonts/font = ExtResource("1_yi54v")
+theme_override_font_sizes/font_size = 28
+text = "Level"
+
+[node name="Level" type="Label" parent="MarginContainer/VB/HBLevel"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.85490197)
+theme_override_fonts/font = ExtResource("1_yi54v")
+theme_override_font_sizes/font_size = 28
+text = "000"
+horizontal_alignment = 2
+
+[node name="HBMoves" type="HBoxContainer" parent="MarginContainer/VB"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="MovesText" type="Label" parent="MarginContainer/VB/HBMoves"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.85490197)
+theme_override_fonts/font = ExtResource("1_yi54v")
+theme_override_font_sizes/font_size = 28
+text = "Moves"
+
+[node name="Moves" type="Label" parent="MarginContainer/VB/HBMoves"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.85490197)
+theme_override_fonts/font = ExtResource("1_yi54v")
+theme_override_font_sizes/font_size = 28
+text = "000"
+horizontal_alignment = 2
+
+[node name="HBBest" type="HBoxContainer" parent="MarginContainer/VB"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="BestText" type="Label" parent="MarginContainer/VB/HBBest"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.85490197)
+theme_override_fonts/font = ExtResource("1_yi54v")
+theme_override_font_sizes/font_size = 28
+text = "Best"
+
+[node name="Best" type="Label" parent="MarginContainer/VB/HBBest"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.85490197)
+theme_override_fonts/font = ExtResource("1_yi54v")
+theme_override_font_sizes/font_size = 28
+text = "000"
+horizontal_alignment = 2
+
+[node name="TextureButton" type="TextureButton" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+texture_normal = ExtResource("3_5bps4")
+texture_pressed = ExtResource("4_trchv")
+
+[node name="Label" type="Label" parent="MarginContainer/TextureButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 1, 0.7882353)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("1_yi54v")
+theme_override_font_sizes/font_size = 24
+text = "All Levels"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="MarginContainer/TextureButton" to="." method="_on_texture_button_pressed"]
